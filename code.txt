@@ -1,4 +1,4 @@
-1)gcloud config set compute/zone us-east-b
+1)gcloud config set compute/zone us-east1-b
 2)gcloud container clusters create nucleus-jumphost-webserver1
 3)gcloud container clusters get-credentials nucleus-jumphost-webserver1
 4)kubectl create deployment hello-app --image=gcr.io/google-samples/hello-app:2.0
