@@ -16,29 +16,29 @@
 10)enter (y/n)   n
 11)enter the yotur numeric choice : 23
 12)gcloud compute instance-groups managed create nginx-group \
-> --base-instance-name niginx \
-> --size 2 \
-> --template nginx-template \
-> --target-pool nginx-pool
+--base-instance-name niginx \
+--size 2 \
+--template nginx-template \
+--target-pool nginx-pool
 13)gcloud compute instances list
 14)gcloud compute firewall-rules create www-firewall --allow tcp:80
 15)gcloud compute forwarding-rules create nginx-lb \
-> --region us-east1 \
-> --ports=80 \
-> --target-pool nginx-pool
+--region us-east1 \
+--ports=80 \
+--target-pool nginx-pool
 13)gcloud compute forwarding-rules list
 14)gcloud compute http-health-checks create http-basic-check
 15)gcloud compute instance-groups managed set-named-ports nginx-group --named-ports http:80
 16)gcloud compute backend-services create nginx-backend \
-> --protocol HTTP --http-health-checks http-basic-check --global
+--protocol HTTP --http-health-checks http-basic-check --global
 17)gcloud compute backend-services add-backend nginx-backend \
-> --instance-group nginx-group \
-> --instance-group-zone us-east1-b \
-> --global
+--instance-group nginx-group \
+--instance-group-zone us-east1-b \
+--global
 18)gcloud compute url-maps create web-map --default-service nginx-backend
 19) gcloud compute target-http-proxies create http-lb-proxy --url-map web-map
 20)gcloud compute forwarding-rules create http-content-rule \
-> --global \
-> --target-http-proxy http-lb-proxy \
-> --ports 80
+--global \
+--target-http-proxy http-lb-proxy \
+--ports 80
 21) gcloud compute forwarding-rules list
