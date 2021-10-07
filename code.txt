@@ -5,12 +5,12 @@
 5)kubectl expose deployment hello-app --type=LoadBalancer --port 8080
 6)kubectl get service
 7)cat << EOF > startup.sh
-> #! /bin/bash
-> apt-get update
-> apt-get install -y nginx
-> service nginx start
-> sed -i -- 's/nginx/Google Cloud Platform - '"\$HOSTNAME"'/' /var/www/html/index.nginx-debian.html
-> EOF
+#! /bin/bash
+apt-get update
+apt-get install -y nginx
+service nginx start
+sed -i -- 's/nginx/Google Cloud Platform - '"\$HOSTNAME"'/' /var/www/html/index.nginx-debian.html
+EOF
 8)gcloud compute instance-templates create nginx-template --metadata-from-file startup-scripts=startup.sh
 9)gcloud compute target-pools create nginx-pool
 10)enter (y/n)   n
